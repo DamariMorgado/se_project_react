@@ -15,9 +15,16 @@ function WeatherCard({ weatherData }) {
     weatherOption = filteredOptions[0];
   }
 
+  // Only show temperature if it's a valid number (not the 999 placeholder)
+  const showTemp = weatherData.temp.F && weatherData.temp.F < 999;
+
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">{weatherData.temp.F} &deg;F</p>
+      {showTemp && (
+        <p className="weather-card__temp">
+          {Math.round(weatherData.temp.F)} &deg;F
+        </p>
+      )}
       <img
         className="weather-card__image"
         src={weatherOption?.url}

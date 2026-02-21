@@ -1,4 +1,3 @@
-import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import "./Header.css";
 
@@ -10,7 +9,7 @@ function Header({ weatherData, onAddButtonClick }) {
 
   return (
     <header className="header">
-      <img className="header__logo" src={logo} alt="WTWR logo" />
+      <img className="header__logo" src="/logo.png" alt="WTWR logo" />
       <p className="header__date-location">
         {currentDate}, {weatherData.city}
       </p>

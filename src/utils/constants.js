@@ -1,38 +1,89 @@
-export const coordinates = {
-  latitude: 40.1753,
-  longitude: -75.4329,
+export const modals = {
+  image: "modal__content_type_image",
+  confirmation: "modal__content_type_confirmation",
 };
-
-export const APIkey = "";
 
 export const weatherOptions = [
   {
-    day: true,
+    isDay: true,
     condition: "clear",
-    url: new URL("../assets/day/clear.png", import.meta.url).href,
+    link: new URL("../assets/day-images/day_clear.png", import.meta.url).href,
   },
   {
-    day: true,
+    isDay: true,
     condition: "clouds",
-    url: new URL("../assets/day/cloudy.png", import.meta.url).href,
+    link: new URL("../assets/day-images/day_cloudy.png", import.meta.url).href,
   },
   {
-    day: false,
+    isDay: true,
+    condition: "rain",
+    link: new URL("../assets/day-images/day_rain.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "thunderstorm",
+    link: new URL("../assets/day-images/day_storm.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "snow",
+    link: new URL("../assets/day-images/day_snow.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "atmosphere",
+    link: new URL("../assets/day-images/day_fog.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
     condition: "clear",
-    url: new URL("../assets/night/clear.png", import.meta.url).href,
+    link: new URL("../assets/night-images/night_clear.png", import.meta.url)
+      .href,
   },
   {
-    day: false,
+    isDay: false,
     condition: "clouds",
-    url: new URL("../assets/night/cloudy.png", import.meta.url).href,
+    link: new URL("../assets/night-images/night_cloudy.png", import.meta.url)
+      .href,
+  },
+  {
+    isDay: false,
+    condition: "rain",
+    link: new URL("../assets/night-images/night_rain.png", import.meta.url)
+      .href,
+  },
+  {
+    isDay: false,
+    condition: "thunderstorm",
+    link: new URL("../assets/night-images/night_storm.png", import.meta.url)
+      .href,
+  },
+  {
+    isDay: false,
+    condition: "snow",
+    link: new URL("../assets/night-images/night_snow.png", import.meta.url)
+      .href,
+  },
+  {
+    isDay: false,
+    condition: "atmosphere",
+    link: new URL("../assets/night-images/night_fog.png", import.meta.url).href,
   },
 ];
 
 export const defaultWeatherOptions = {
   day: {
-    url: new URL("../assets/day/default.png", import.meta.url).href,
+    link: new URL("../assets/day-images/day_default.png", import.meta.url).href,
   },
   night: {
-    url: new URL("../assets/night/default.png", import.meta.url).href,
+    link: new URL("../assets/night-images/night_default.png", import.meta.url)
+      .href,
   },
 };
+
+export const coordinates = {
+  latitude: 26.98188,
+  longitude: -82.101082,
+};
+
+export const APIkey = "9fa68d860981afacd49cc8c11d6d1724";

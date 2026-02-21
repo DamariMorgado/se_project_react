@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import Main from "../main/main";
+import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
@@ -21,8 +21,17 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems] = useState(defaultClothingItems);
 
+  // Form state for add garment modal
+  const [name, setName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [weather, setWeather] = useState("");
+
   const handleAddClick = () => {
     setActiveModal("add-garment");
+    // Reset form
+    setName("");
+    setImageUrl("");
+    setWeather("");
   };
 
   const closeActiveModal = () => {
@@ -34,13 +43,33 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", { name, imageUrl, weather });
+    // Here you would normally send this to a backend
+    // For now, just close the modal
+    closeActiveModal();
+  };
+
   useEffect(() => {
+    if (!APIkey) {
+      console.error(
+        "Please add your OpenWeather API key in src/utils/constants.js",
+      );
+      return;
+    }
+
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error("Weather API Error:", error);
+        console.error(
+          "Make sure you added your API key in src/utils/constants.js",
+        );
+      });
   }, []);
 
   useEffect(() => {
@@ -75,6 +104,7 @@ function App() {
         buttonText="Add garment"
         isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
+        onSubmit={handleSubmit}
       >
         <label className="modal__label" htmlFor="name">
           Name
@@ -83,6 +113,9 @@ function App() {
             type="text"
             id="name"
             placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
           />
         </label>
         <label className="modal__label" htmlFor="imageUrl">
@@ -92,6 +125,9 @@ function App() {
             type="url"
             id="imageUrl"
             placeholder="Image URL"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            required
           />
         </label>
         <fieldset className="modal__radio-buttons">
@@ -102,6 +138,9 @@ function App() {
               type="radio"
               id="hot"
               name="weather"
+              value="hot"
+              checked={weather === "hot"}
+              onChange={(e) => setWeather(e.target.value)}
             />
             Hot
           </label>
@@ -114,6 +153,9 @@ function App() {
               type="radio"
               id="warm"
               name="weather"
+              value="warm"
+              checked={weather === "warm"}
+              onChange={(e) => setWeather(e.target.value)}
             />
             Warm
           </label>
@@ -126,6 +168,9 @@ function App() {
               type="radio"
               id="cold"
               name="weather"
+              value="cold"
+              checked={weather === "cold"}
+              onChange={(e) => setWeather(e.target.value)}
             />
             Cold
           </label>

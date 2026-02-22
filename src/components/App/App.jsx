@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
+import Main from "../main/main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, apiKey } from "../../utils/constants";
 import { defaultClothingItems } from "../../utils/clothingItems";
 import "./App.css";
 
@@ -45,21 +45,20 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { name, imageUrl, weather });
     // Here you would normally send this to a backend
     // For now, just close the modal
     closeActiveModal();
   };
 
   useEffect(() => {
-    if (!APIkey) {
+    if (!apiKey) {
       console.error(
         "Please add your OpenWeather API key in src/utils/constants.js",
       );
       return;
     }
 
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);

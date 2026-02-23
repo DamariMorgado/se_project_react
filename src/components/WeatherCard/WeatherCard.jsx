@@ -4,7 +4,7 @@ import "./WeatherCard.css";
 function WeatherCard({ weatherData }) {
   const filteredOptions = weatherOptions.filter(
     (option) =>
-      option.isDay === weatherData.isDay &&
+      option.day === weatherData.isDay &&
       option.condition === weatherData.condition,
   );
 
@@ -27,7 +27,7 @@ function WeatherCard({ weatherData }) {
       )}
       <img
         className="weather-card__image"
-        src={weatherOption.link}
+        src={weatherOption?.url}
         alt={`Card showing ${weatherData.isDay ? "daytime" : "nighttime"} ${
           weatherData.condition || ""
         } weather`}

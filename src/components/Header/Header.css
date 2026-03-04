@@ -58,3 +58,8 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.header__nav-link {
+  color: #000000;
+  text-decoration: none;
+}

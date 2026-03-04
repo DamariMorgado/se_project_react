@@ -1,6 +1,14 @@
 import "./ModalWithForm.css";
 
-function ModalWithForm({ title, name, buttonText, isOpen, onClose, children }) {
+function ModalWithForm({
+  title,
+  name,
+  buttonText,
+  isOpen,
+  onClose,
+  onSubmit,
+  children,
+}) {
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -15,7 +23,7 @@ function ModalWithForm({ title, name, buttonText, isOpen, onClose, children }) {
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button className="modal__close" type="button" onClick={onClose} />
-        <form className="modal__form" name={name}>
+        <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
           <button className="modal__submit" type="submit">
             {buttonText}

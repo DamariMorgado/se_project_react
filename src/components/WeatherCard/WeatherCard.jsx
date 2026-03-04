@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import "./WeatherCard.css";
 
 function WeatherCard({ weatherData }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   const filteredOptions = weatherOptions.filter(
     (option) =>
       option.day === weatherData.isDay &&
@@ -15,14 +19,14 @@ function WeatherCard({ weatherData }) {
     weatherOption = filteredOptions[0];
   }
 
-  // Only show temperature if it's a valid number (not the 999 placeholder)
   const showTemp = weatherData.temp.F && weatherData.temp.F < 999;
 
   return (
     <section className="weather-card">
       {showTemp && (
         <p className="weather-card__temp">
-          {Math.round(weatherData.temp.F)} &deg;F
+          {weatherData.temp[currentTemperatureUnit]} &deg;
+          {currentTemperatureUnit}
         </p>
       )}
       <img

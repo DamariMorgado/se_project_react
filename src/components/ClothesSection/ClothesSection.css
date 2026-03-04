@@ -1,0 +1,19 @@
+.clothes-section {
+  flex-grow: 1;
+}
+
+.clothes-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.clothes-section__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(283px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

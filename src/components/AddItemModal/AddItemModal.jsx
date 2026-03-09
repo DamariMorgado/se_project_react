@@ -8,9 +8,14 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem(values).then(() => {
-      setValues(defaultValues);
-    });
+    if (!values.weather) return;
+    onAddItem(values)
+      .then(() => {
+        setValues(defaultValues);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
@@ -59,6 +64,7 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
             value="hot"
             checked={values.weather === "hot"}
             onChange={handleChange}
+            required
           />
           Hot
         </label>

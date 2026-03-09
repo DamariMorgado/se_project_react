@@ -45,10 +45,12 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
-    return addItem(item).then((newItem) => {
-      setClothingItems([newItem, ...clothingItems]);
-      closeActiveModal();
-    });
+    return addItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   const handleDeleteCard = (card) => {

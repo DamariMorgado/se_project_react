@@ -11,8 +11,7 @@ function Main({ weatherData, clothingItems, onCardClick }) {
     (item) => item.weather === weatherData.type,
   );
 
-  const showTemp =
-    Number.isFinite(weatherData.temp.F) && weatherData.temp.F < 999;
+  const showTemp = weatherData.temp.F !== undefined && weatherData.temp.F < 999;
 
   return (
     <main className="main">

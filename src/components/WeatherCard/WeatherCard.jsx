@@ -19,8 +19,7 @@ function WeatherCard({ weatherData }) {
     weatherOption = filteredOptions[0];
   }
 
-  const showTemp =
-    Number.isFinite(weatherData.temp.F) && weatherData.temp.F < 999;
+  const showTemp = weatherData.temp.F !== undefined && weatherData.temp.F < 999;
 
   return (
     <section className="weather-card">

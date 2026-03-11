@@ -8,16 +8,11 @@
 .header__logo {
   width: 89px;
   height: 40px;
-  margin-right: 24px;
+  object-fit: contain;
 }
 
 .header__date-location {
-  margin: 0;
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  color: #000000;
+  margin: 0 16px;
 }
 
 .header__add-close-button {
@@ -62,4 +57,8 @@
 .header__nav-link {
   color: #000000;
   text-decoration: none;
+}
+
+.toggle-switch {
+  margin: 0 16px;
 }

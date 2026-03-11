@@ -62,3 +62,10 @@
 .toggle-switch {
   margin: 0 16px;
 }
+
+.header__controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}

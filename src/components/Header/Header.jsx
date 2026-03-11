@@ -17,24 +17,26 @@ function Header({ weatherData, onAddButtonClick }) {
       <p className="header__date-location">
         {currentDate}, {weatherData.city}
       </p>
-      <ToggleSwitch />
-      <button
-        className="header__add-close-button"
-        type="button"
-        onClick={onAddButtonClick}
-      >
-        + Add clothes
-      </button>
-      <NavLink to="/profile" className="header__nav-link">
-        <div className="header__user">
-          <p className="header__username">Terrence Tegegne</p>
-          <img
-            className="header__avatar"
-            src={avatar}
-            alt="Terrence Tegegne's avatar"
-          />
-        </div>
-      </NavLink>
+      <div className="header__controls">
+        <button
+          className="header__add-close-button"
+          type="button"
+          onClick={onAddButtonClick}
+        >
+          + Add clothes
+        </button>
+        <ToggleSwitch />
+        <NavLink to="/profile" className="header__nav-link">
+          <div className="header__user">
+            <p className="header__username">Terrence Tegegne</p>
+            <img
+              className="header__avatar"
+              src={avatar}
+              alt="Terrence Tegegne's avatar"
+            />
+          </div>
+        </NavLink>
+      </div>
     </header>
   );
 }

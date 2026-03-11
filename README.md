@@ -24,12 +24,12 @@ WTWR is a React application that recommends clothing based on the current weathe
 
 ## Screenshots
 
-_Add screenshots here_
+![App Screenshots] (!(<Screenshot 2026-03-11 133304.png>)) !(<Screenshot 2026-03-11 133256.png>)
 
 ## Demo
 
-_Add demo video or GIF here_
+https://www.loom.com/share/aad6e0f724cd4fe8be2eb1679e53c642
 
 ## GitHub Pages
 
-_Add deployed link here_
+https://damarimorgado.github.io/se_project_react/

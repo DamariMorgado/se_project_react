@@ -16,8 +16,10 @@ function ItemModal({ isOpen, card, onClose, onDeleteCard }) {
         <button className="modal__close" type="button" onClick={onClose} />
         <img className="modal__image" src={card.imageUrl} alt={card.name} />
         <div className="modal__footer">
-          <h2 className="modal__caption">{card.name}</h2>
-          <p className="modal__weather">Weather: {card.weather}</p>
+          <div className="modal__text">
+            <h2 className="modal__caption">{card.name}</h2>
+            <p className="modal__weather">Weather: {card.weather}</p>
+          </div>
           <button
             className="modal__delete-button"
             type="button"

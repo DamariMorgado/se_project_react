@@ -53,3 +53,9 @@
 .modal__delete-button:hover {
   opacity: 0.7;
 }
+
+.modal__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

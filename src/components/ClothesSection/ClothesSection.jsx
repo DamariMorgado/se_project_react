@@ -1,7 +1,16 @@
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-function ClothesSection({ clothingItems, onCardClick, onAddButtonClick }) {
+function ClothesSection({
+  clothingItems,
+  onCardClick,
+  onAddButtonClick,
+  currentUser,
+}) {
+  const userItems = clothingItems.filter(
+    (item) => item.owner === currentUser?._id,
+  );
+
   return (
     <div className="clothes-section">
       <div className="clothes-section__header">
@@ -15,7 +24,7 @@ function ClothesSection({ clothingItems, onCardClick, onAddButtonClick }) {
         </button>
       </div>
       <ul className="clothes-section__items">
-        {clothingItems.map((item) => (
+        {userItems.map((item) => (
           <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
         ))}
       </ul>

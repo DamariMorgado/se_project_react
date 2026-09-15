@@ -17,10 +17,12 @@ function Profile({
         onEditProfile={onEditProfile}
         onSignOut={onSignOut}
       />
+
       <ClothesSection
         clothingItems={clothingItems}
         onCardClick={onCardClick}
         onAddButtonClick={onAddButtonClick}
+        currentUser={currentUser}
       />
     </section>
   );

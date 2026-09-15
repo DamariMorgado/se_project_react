@@ -3,7 +3,14 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import avatar from "../../assets/avatar.png";
 import "./Header.css";
 
-function Header({ weatherData, onAddButtonClick }) {
+function Header({
+  weatherData,
+  onAddButtonClick,
+  isLoggedIn,
+  currentUser,
+  onLoginClick,
+  onRegisterClick,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -14,28 +21,62 @@ function Header({ weatherData, onAddButtonClick }) {
       <NavLink to="/" className="header__nav-link">
         <img className="header__logo" src="/logo.png" alt="WTWR logo" />
       </NavLink>
+
       <p className="header__date-location">
         {currentDate}, {weatherData.city}
       </p>
+
       <div className="header__controls">
-        <button
-          className="header__add-close-button"
-          type="button"
-          onClick={onAddButtonClick}
-        >
-          + Add clothes
-        </button>
-        <ToggleSwitch />
-        <NavLink to="/profile" className="header__nav-link">
-          <div className="header__user">
-            <p className="header__username">Terrence Tegegne</p>
-            <img
-              className="header__avatar"
-              src={avatar}
-              alt="Terrence Tegegne's avatar"
-            />
-          </div>
-        </NavLink>
+        {isLoggedIn ? (
+          <>
+            <button
+              className="header__add-close-button"
+              type="button"
+              onClick={onAddButtonClick}
+            >
+              + Add clothes
+            </button>
+
+            <ToggleSwitch />
+
+            <NavLink to="/profile" className="header__nav-link">
+              <div className="header__user">
+                <p className="header__username">{currentUser?.name}</p>
+                {currentUser?.avatar ? (
+                  <img
+                    className="header__avatar"
+                    src={currentUser.avatar}
+                    alt={`${currentUser.name}'s avatar`}
+                  />
+                ) : (
+                  <div className="header__avatar">
+                    {currentUser?.name?.charAt(0)}
+                  </div>
+                )}
+              </div>
+            </NavLink>
+          </>
+        ) : (
+          <>
+            <button
+              className="header__add-close-button"
+              type="button"
+              onClick={onLoginClick}
+            >
+              Log in
+            </button>
+
+            <button
+              className="header__add-close-button"
+              type="button"
+              onClick={onRegisterClick}
+            >
+              Sign up
+            </button>
+
+            <ToggleSwitch />
+          </>
+        )}
       </div>
     </header>
   );

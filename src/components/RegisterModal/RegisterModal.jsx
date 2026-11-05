@@ -13,7 +13,6 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onRegister(values)
       .then(() => {
         setValues(defaultValues);
@@ -32,12 +31,12 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label" htmlFor="name">
+      <label className="modal__label" htmlFor="register-name">
         Name
         <input
           className="modal__input"
           type="text"
-          id="name"
+          id="register-name"
           name="name"
           placeholder="Name"
           value={values.name}
@@ -45,13 +44,12 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
           required
         />
       </label>
-
-      <label className="modal__label" htmlFor="avatar">
+      <label className="modal__label" htmlFor="register-avatar">
         Avatar URL
         <input
           className="modal__input"
           type="url"
-          id="avatar"
+          id="register-avatar"
           name="avatar"
           placeholder="Avatar URL"
           value={values.avatar}
@@ -59,13 +57,12 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
           required
         />
       </label>
-
-      <label className="modal__label" htmlFor="email">
+      <label className="modal__label" htmlFor="register-email">
         Email
         <input
           className="modal__input"
           type="email"
-          id="email"
+          id="register-email"
           name="email"
           placeholder="Email"
           value={values.email}
@@ -73,13 +70,12 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
           required
         />
       </label>
-
-      <label className="modal__label" htmlFor="password">
+      <label className="modal__label" htmlFor="register-password">
         Password
         <input
           className="modal__input"
           type="password"
-          id="password"
+          id="register-password"
           name="password"
           placeholder="Password"
           value={values.password}

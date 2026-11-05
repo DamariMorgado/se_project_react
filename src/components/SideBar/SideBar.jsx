@@ -1,4 +1,3 @@
-import avatar from "../../assets/avatar.png";
 import "./SideBar.css";
 
 function SideBar({ currentUser, onEditProfile, onSignOut }) {
@@ -16,7 +15,6 @@ function SideBar({ currentUser, onEditProfile, onSignOut }) {
         )}
         <p className="sidebar__username">{currentUser?.name}</p>
       </div>
-
       <div className="sidebar__buttons">
         <button
           className="sidebar__edit-button"
@@ -25,7 +23,6 @@ function SideBar({ currentUser, onEditProfile, onSignOut }) {
         >
           Edit profile
         </button>
-
         <button
           className="sidebar__signout-button"
           type="button"

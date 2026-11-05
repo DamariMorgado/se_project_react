@@ -210,7 +210,6 @@ function App() {
               weatherData={weatherData}
               onAddButtonClick={handleAddClick}
               isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
               onLoginClick={handleLoginClick}
               onRegisterClick={handleRegisterClick}
             />

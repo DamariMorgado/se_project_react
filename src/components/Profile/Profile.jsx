@@ -5,6 +5,7 @@ import "./Profile.css";
 function Profile({
   clothingItems,
   onCardClick,
+  onCardLike,
   onAddButtonClick,
   currentUser,
   onEditProfile,
@@ -17,10 +18,10 @@ function Profile({
         onEditProfile={onEditProfile}
         onSignOut={onSignOut}
       />
-
       <ClothesSection
         clothingItems={clothingItems}
         onCardClick={onCardClick}
+        onCardLike={onCardLike}
         onAddButtonClick={onAddButtonClick}
         currentUser={currentUser}
       />

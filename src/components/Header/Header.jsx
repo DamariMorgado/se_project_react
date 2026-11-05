@@ -1,16 +1,18 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import avatar from "../../assets/avatar.png";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Header.css";
 
 function Header({
   weatherData,
   onAddButtonClick,
   isLoggedIn,
-  currentUser,
   onLoginClick,
   onRegisterClick,
 }) {
+  const currentUser = useContext(CurrentUserContext);
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -21,11 +23,9 @@ function Header({
       <NavLink to="/" className="header__nav-link">
         <img className="header__logo" src="/logo.png" alt="WTWR logo" />
       </NavLink>
-
       <p className="header__date-location">
         {currentDate}, {weatherData.city}
       </p>
-
       <div className="header__controls">
         {isLoggedIn ? (
           <>
@@ -36,9 +36,7 @@ function Header({
             >
               + Add clothes
             </button>
-
             <ToggleSwitch />
-
             <NavLink to="/profile" className="header__nav-link">
               <div className="header__user">
                 <p className="header__username">{currentUser?.name}</p>
@@ -65,7 +63,6 @@ function Header({
             >
               Log in
             </button>
-
             <button
               className="header__add-close-button"
               type="button"
@@ -73,7 +70,6 @@ function Header({
             >
               Sign up
             </button>
-
             <ToggleSwitch />
           </>
         )}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../main/main";
 import Footer from "../Footer/Footer";
@@ -26,6 +26,7 @@ import { register, authorize, checkToken } from "../../utils/auth";
 import "./App.css";
 
 function App() {
+  const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -88,6 +89,7 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
         closeActiveModal();
+        navigate("/");
       });
   };
 
@@ -212,7 +214,6 @@ function App() {
               onLoginClick={handleLoginClick}
               onRegisterClick={handleRegisterClick}
             />
-
             <Routes>
               <Route
                 path="/"
@@ -225,7 +226,6 @@ function App() {
                   />
                 }
               />
-
               <Route
                 path="/profile"
                 element={
@@ -233,6 +233,7 @@ function App() {
                     <Profile
                       clothingItems={clothingItems}
                       onCardClick={handleCardClick}
+                      onCardLike={handleCardLike}
                       onAddButtonClick={handleAddClick}
                       currentUser={currentUser}
                       onEditProfile={handleEditProfileClick}
@@ -242,16 +243,13 @@ function App() {
                 }
               />
             </Routes>
-
             <Footer />
           </div>
-
           <AddItemModal
             isOpen={activeModal === "add-garment"}
             onAddItem={handleAddItemSubmit}
             onCloseModal={closeActiveModal}
           />
-
           <ItemModal
             isOpen={activeModal === "preview"}
             card={selectedCard}
@@ -259,19 +257,16 @@ function App() {
             onDeleteCard={handleDeleteCard}
             currentUser={currentUser}
           />
-
           <RegisterModal
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onRegister={handleRegister}
           />
-
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={closeActiveModal}
             onLogin={handleLogin}
           />
-
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             onClose={closeActiveModal}

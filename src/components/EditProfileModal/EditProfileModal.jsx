@@ -19,7 +19,6 @@ function EditProfileModal({ isOpen, onClose, currentUser, onUpdateUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onUpdateUser(values)
       .then(() => {
         onClose();
@@ -38,12 +37,12 @@ function EditProfileModal({ isOpen, onClose, currentUser, onUpdateUser }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label" htmlFor="name">
+      <label className="modal__label" htmlFor="edit-name">
         Name
         <input
           className="modal__input"
           type="text"
-          id="name"
+          id="edit-name"
           name="name"
           placeholder="Name"
           value={values.name}
@@ -51,13 +50,12 @@ function EditProfileModal({ isOpen, onClose, currentUser, onUpdateUser }) {
           required
         />
       </label>
-
-      <label className="modal__label" htmlFor="avatar">
+      <label className="modal__label" htmlFor="edit-avatar">
         Avatar URL
         <input
           className="modal__input"
           type="url"
-          id="avatar"
+          id="edit-avatar"
           name="avatar"
           placeholder="Avatar URL"
           value={values.avatar}

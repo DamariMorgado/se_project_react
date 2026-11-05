@@ -27,12 +27,12 @@ function AddItemModal({ isOpen, onAddItem, onCloseModal }) {
       onClose={onCloseModal}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label" htmlFor="name">
+      <label className="modal__label" htmlFor="add-item-name">
         Name
         <input
           className="modal__input"
           type="text"
-          id="name"
+          id="add-item-name"
           name="name"
           placeholder="Name"
           value={values.name}

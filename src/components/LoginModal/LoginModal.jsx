@@ -6,7 +6,7 @@ const defaultValues = {
   password: "",
 };
 
-function LoginModal({ isOpen, onClose, onLogin }) {
+function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
   const { values, handleChange, setValues } = useForm(defaultValues);
 
   const handleSubmit = (e) => {
@@ -57,6 +57,14 @@ function LoginModal({ isOpen, onClose, onLogin }) {
           required
         />
       </label>
+
+      <button
+        className="modal__switch-button"
+        type="button"
+        onClick={onSwitchToRegister}
+      >
+        or Sign up
+      </button>
     </ModalWithForm>
   );
 }

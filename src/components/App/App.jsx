@@ -260,11 +260,13 @@ function App() {
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onRegister={handleRegister}
+            onSwitchToLogin={handleLoginClick}
           />
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={closeActiveModal}
             onLogin={handleLogin}
+            onSwitchToRegister={handleRegisterClick}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

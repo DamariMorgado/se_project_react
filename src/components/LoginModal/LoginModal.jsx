@@ -26,6 +26,8 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
       title="Log in"
       name="login"
       buttonText="Log in"
+      secondaryButtonText="or Sign up"
+      onSecondaryButtonClick={onSwitchToRegister}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
@@ -57,14 +59,6 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
           required
         />
       </label>
-
-      <button
-        className="modal__switch-button"
-        type="button"
-        onClick={onSwitchToRegister}
-      >
-        or Sign up
-      </button>
     </ModalWithForm>
   );
 }

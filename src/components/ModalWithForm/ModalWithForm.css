@@ -144,6 +144,13 @@
   accent-color: #000000;
 }
 
+.modal__buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
 .modal__submit {
   padding: 8px 16px;
   background-color: #000000;
@@ -156,7 +163,10 @@
   color: #ffffff;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 8px;
+}
+
+.modal__submit:only-child {
+  flex: 1;
 }
 
 .modal__submit:hover {
@@ -166,6 +176,23 @@
 .modal__submit:disabled {
   background-color: rgba(0, 0, 0, 0.3);
   cursor: not-allowed;
+}
+
+.modal__secondary-button {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  transition: opacity 0.3s;
+}
+
+.modal__secondary-button:hover {
+  opacity: 0.6;
 }
 
 .modal__error {
